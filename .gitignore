@@ -1,0 +1,4 @@
+# Project exclude paths
+/demo-01/target/
+/demo-02/target/
+/StringUtils-01/target/

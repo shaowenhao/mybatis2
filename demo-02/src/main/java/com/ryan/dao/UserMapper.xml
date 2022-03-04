@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--接口实现类由原来的UserDaoImpl转变为一个Mapper配置文件-->
+<!--namespace 绑定一个对应的dao、mapper接口-->
+<mapper namespace="com.ryan.dao.UserMapper">
+    <select id="getUserList" resultType="com.ryan.pojo.User">
+        select * from mybatis.user
+    </select>
+
+    <select id="getUserById" parameterType="int" resultType="com.ryan.pojo.User">
+        select * from mybatis.user where id = #{id}
+    </select>
+
+    <!-- Map传递参数，直接在sql中却出key即可
+     对象传递参数，直接在sql中取对象的属性即可
+    只有一个基本类型的情况下，可以直接在sql中取到 -->
+    <select id="getUserById2" parameterType="map" resultType="com.ryan.pojo.User">
+        select * from mybatis.user where id = #{user_id}
+    </select>
+</mapper>
